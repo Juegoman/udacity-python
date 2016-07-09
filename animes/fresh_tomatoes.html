@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Fresh Tomatoes!</title>
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .anime-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .anime-tile:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.anime-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the animes when the page loads
+        $(document).ready(function () {
+          $('.anime-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Fresh Tomatoes Anime Trailers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      
+<div class="col-md-6 col-lg-4 anime-tile text-center" data-trailer-youtube-id="atxYe-nOa9w" data-toggle="modal" data-target="#trailer">
+    <img src="http://1.bp.blogspot.com/-jwEBw38AdYg/VpWvlPePs_I/AAAAAAAABcc/K4Z11tWG0S8/s1600/One-Punch%2BMan.jpg" width="220" height="342">
+    <h2>One Punch Man</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 anime-tile text-center" data-trailer-youtube-id="scRQ3AXe4hw" data-toggle="modal" data-target="#trailer">
+    <img src="http://67.media.tumblr.com/e2f980674e38f32a5e17b428a5e07005/tumblr_nye3k9orf61rc1nzgo5_1280.jpg" width="220" height="342">
+    <h2>Kill la Kill</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 anime-tile text-center" data-trailer-youtube-id="FOXaWCRv_68" data-toggle="modal" data-target="#trailer">
+    <img src="http://3.bp.blogspot.com/-9mQP3GV1fts/VZDW93qzfgI/AAAAAAAAAwU/vro2XpGu9ew/s1600/%25E6%2588%25B0%25E5%25A7%25AC%25E7%25B5%2595%25E5%2594%25B1.jpg" width="220" height="342">
+    <h2>Senki Zesshou Symphogear</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 anime-tile text-center" data-trailer-youtube-id="Bs4VBfpIaes" data-toggle="modal" data-target="#trailer">
+    <img src="http://media.senscritique.com/media/000006512004/source_big/Katanagatari.jpg" width="220" height="342">
+    <h2>Katanagatari</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 anime-tile text-center" data-trailer-youtube-id="8ZtGDSZie5I" data-toggle="modal" data-target="#trailer">
+    <img src="http://i.imgur.com/d2cHMKb.jpg" width="220" height="342">
+    <h2>JoJo's Bizarre Adventure</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 anime-tile text-center" data-trailer-youtube-id="C_t47BVtPuE" data-toggle="modal" data-target="#trailer">
+    <img src="http://static1.squarespace.com/static/520a5868e4b01247d70eaa07/54f9ea91e4b0bde11db053ac/54fc0403e4b0da385be147ab/1425802255985/Gurren+Lagann.jpg" width="220" height="342">
+    <h2>Tengen Toppa Gurren Lagann</h2>
+</div>
+
+    </div>
+  </body>
+</html>
