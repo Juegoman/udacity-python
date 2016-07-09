@@ -1,5 +1,6 @@
 import webbrowser
 class Anime():
+    """A class to model an anime."""
     def __init__(this, anime_title, anime_synopsis, image, op_yt):
         this.title = anime_title
         this.synopsis = anime_synopsis
